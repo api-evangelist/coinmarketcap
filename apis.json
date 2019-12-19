@@ -1,0 +1,57 @@
+{
+    "name": "CoinMarketCap",
+    "description": "Cryptocurrency market cap rankings, charts, and more",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/28891-pro-coinmarketcap-com.jpg",
+    "tags": [
+        "blockchain",
+        "have api",
+        "streams"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/coinmarketcap\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "CoinMarketCap Professional API Documentation",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/28891-pro-coinmarketcap-com.jpg",
+            "humanURL": "https:\/\/pro.coinmarketcap.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/coinmarketcap-professional-api-documentation-openapi.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/coinmarketcap-professional-api-documentation.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/coinmarketcap-professional-api-documentation-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/coinmarketcap"
+        },
+        {
+            "type": "Email",
+            "url": "legal@coinmarketcap.com"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/CoinMarketCap"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/pro.coinmarketcap.com"
+        }
+    ]
+}
