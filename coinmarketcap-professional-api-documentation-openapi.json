@@ -1,0 +1,1911 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "CoinMarketCap Professional API Documentation",
+        "description": "# Introduction\nThe CoinMarketCap Professional API is a suite of high-performance RESTful JSON endpoints that are specifically designed to meet the mission-critical demands of application developers, data scientists, and enterprise business platforms.\n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. Additional answers to common questions can be found in the [CoinMarketCap Professional API FAQ](https:\/\/pro.coinmarketcap.com\/faq).\n\n***Note:** If you\u2019re using the CoinMarketCap Public API, you'll want to access the [Public API Documentation](https:\/\/coinmarketcap.com\/api\/); the Professional API is an entirely separate API product. If you're uncertain of which you need for your needs, check the [feature comparison matrix](https:\/\/pro.coinmarketcap.com\/faq).*\n\n# Quick Start Guide\n\nFor developers eager to hit the ground running with the Professional API here are 3 quick steps to make your first call with the Profess",
+        "termsOfService": "https:\/\/coinmarketcap.com\/terms\/"
+    },
+    "servers": [
+        "httpspro-api.coinmarketcap.com\/"
+    ],
+    "paths": {
+        "\/v1\/cryptocurrency\/info": {
+            "get": {
+                "summary": "Get metadata",
+                "description": "Returns all static metadata for one or more cryptocurrencies including name, symbol, logo, and its various registered URLs.\n\n**This endpoint is available on the following API plans:**\n- Starter\n- Hobbyist\n- Standard\n- Professional\n- Enterprise\n\n**Cache \/ Update frequency:** Static data is updated only as needed, every 30 seconds.",
+                "operationId": "GetV1CryptocurrencyInfo",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\""
+                    },
+                    {
+                        "name": "symbol",
+                        "in": "query",
+                        "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required."
+                    }
+                ]
+            }
+        },
+        "\/v1\/cryptocurrency\/map": {
+            "get": {
+                "summary": "Get CoinMarketCap ID map",
+                "description": "Returns a paginated list of all cryptocurrencies by CoinMarketCap ID. We recommend using this convenience endpoint to lookup and utilize our unique cryptocurrency `id` across all endpoints as typical identifiers like ticker symbols can match multiple cryptocurrencies and change over time. As a convenience you may pass a comma-separated list of cryptocurrency symbols as `symbol` to filter this list to only those you require.\n\n\n  **This endpoint is available on the following API plans:**\n  - Start",
+                "operationId": "GetV1CryptocurrencyMap",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "listing_status",
+                        "in": "query",
+                        "description": "Only active coins are returned by default. Pass 'inactive' to get a list of coins that are no longer active."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Optionally offset the start (1-based index) of the paginated list of items to return."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size."
+                    },
+                    {
+                        "name": "symbol",
+                        "in": "query",
+                        "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required."
+                    }
+                ]
+            }
+        },
+        "\/v1\/exchange\/info": {
+            "get": {
+                "summary": "Get metadata",
+                "description": "Returns all static metadata for one or more exchanges including logo and homepage URL.\n\n  **This endpoint is available on the following API plans:**\n  - ~~Starter~~\n  - Hobbyist\n  - Standard\n  - Professional\n  - Enterprise\n\n**Cache \/ Update frequency:** Static data is updated only as needed, every 30 seconds.",
+                "operationId": "GetV1ExchangeInfo",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\""
+                    },
+                    {
+                        "name": "slug",
+                        "in": "query",
+                        "description": "Alternatively, one or more comma-separated exchange names in URL friendly shorthand \"slug\" format (all lowercase, spaces replaced with hyphens). Example: \"binance,gdax\". At least one \"id\" *or* \"slug\" is required."
+                    }
+                ]
+            }
+        },
+        "\/v1\/exchange\/map": {
+            "get": {
+                "summary": "Get CoinMarketCap ID map",
+                "description": "Returns a paginated list of all cryptocurrency exchanges by CoinMarketCap ID. We recommend using this convenience endpoint to lookup and utilize our unique exchange `id` across all endpoints as typical exchange identifiers may change over time. As a convenience you may pass a comma-separated list of exchanges by `slug` to filter this list to only those you require.\n\n**This endpoint is available on the following API plans:**\n  - ~~Starter~~\n  - Hobbyist\n  - Standard\n  - Professional\n  - Enterpris",
+                "operationId": "GetV1ExchangeMap",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "listing_status",
+                        "in": "query",
+                        "description": "Only active coins are returned by default. Pass 'inactive' to get a list of coins that are no longer active."
+                    },
+                    {
+                        "name": "slug",
+                        "in": "query",
+                        "description": "Alternatively, one or more comma-separated exchange names in URL friendly shorthand \"slug\" format (all lowercase, spaces replaced with hyphens). Example: \"binance,gdax\". At least one \"id\" *or* \"slug\" is required."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Optionally offset the start (1-based index) of the paginated list of items to return."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size."
+                    }
+                ]
+            }
+        },
+        "\/v1\/tools\/price-conversion": {
+            "get": {
+                "summary": "Price conversion tool",
+                "description": "Convert an amount of one currency into up to 32 other cryptocurrency or fiat currencies at the same time using latest exchange rates. Optionally pass a historical timestamp to convert values based on historic averages.\n\n**Note:** Historical fiat conversions aren't yet available and the latest fiat rates will be used as noted by the `last_updated` timestamp included in the market quote. Historical fiat rates will be coming soon.\n\n**This endpoint is available on the following API plans:**\n- ~~Star",
+                "operationId": "GetV1ToolsPriceconversion",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "amount",
+                        "in": "query",
+                        "description": "An amount of currency to convert. Example: 10.43"
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\""
+                    },
+                    {
+                        "name": "symbol",
+                        "in": "query",
+                        "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required."
+                    },
+                    {
+                        "name": "time",
+                        "in": "query",
+                        "description": "Optional timestamp (Unix or ISO 8601) to reference historical pricing during conversion. If not passed, the current time will be used. If passed, we'll reference the closest historic values available during conversion."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        },
+        "\/v1\/cryptocurrency\/listings\/historical": {
+            "get": {
+                "summary": "List all cryptocurrencies (historical)",
+                "description": "**This endpoint is not yet available. It is slated for release in Q3 2018.**\n\n\nGet a paginated list of all cryptocurrencies with market data for a given historical time. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.",
+                "operationId": "GetV1CryptocurrencyListingsHistorical",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "timestamp",
+                        "in": "query",
+                        "description": "Timestamp (Unix or ISO 8601) to return historical cryptocurrency listings for."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Optionally offset the start (1-based index) of the paginated list of items to return."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "What field to sort the list of cryptocurrencies by."
+                    },
+                    {
+                        "name": "sort_dir",
+                        "in": "query",
+                        "description": "The direction in which to order cryptocurrencies against the specified sort."
+                    },
+                    {
+                        "name": "cryptocurrency_type",
+                        "in": "query",
+                        "description": "The type of cryptocurrency to include."
+                    }
+                ]
+            }
+        },
+        "\/v1\/cryptocurrency\/listings\/latest": {
+            "get": {
+                "summary": "List all cryptocurrencies (latest)",
+                "description": "Get a paginated list of all cryptocurrencies with latest market data. You can configure this call to sort by market cap or another market ranking field. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.   \n\n\nCryptocurrencies are listed by CoinMarketCap Rank by default. You may optionally sort against any of the following:\n**name**: The cryptocurrency name.\n**symbol**: The cryptocurrency symbol.\n**date_added**: Date cryptocurrency w",
+                "operationId": "GetV1CryptocurrencyListingsLatest",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Optionally offset the start (1-based index) of the paginated list of items to return."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "What field to sort the list of cryptocurrencies by."
+                    },
+                    {
+                        "name": "sort_dir",
+                        "in": "query",
+                        "description": "The direction in which to order cryptocurrencies against the specified sort."
+                    },
+                    {
+                        "name": "cryptocurrency_type",
+                        "in": "query",
+                        "description": "The type of cryptocurrency to include."
+                    }
+                ]
+            }
+        },
+        "\/v1\/cryptocurrency\/market-pairs\/latest": {
+            "get": {
+                "summary": "Get market pairs (latest)",
+                "description": "Lists all market pairs for the specified cryptocurrency with associated stats. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.\n\n\n  **This endpoint is available on the following API plans:**\n  - ~~Starter~~\n  - ~~Hobbyist~~\n  - Standard\n  - Professional\n  - Enterprise\n\n**Cache \/ Update frequency:** Every ~1 minute.",
+                "operationId": "GetV1CryptocurrencyMarketpairsLatest",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\""
+                    },
+                    {
+                        "name": "symbol",
+                        "in": "query",
+                        "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Optionally offset the start (1-based index) of the paginated list of items to return."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        },
+        "\/v1\/cryptocurrency\/ohlcv\/historical": {
+            "get": {
+                "summary": "Get OHLCV values (historical)",
+                "description": "Return an interval of historic OHLCV (Open, High, Low, Close, Volume) market quotes for a cryptocurrency.\n\n**Technical Details**\nOne OHLCV quote will be returned for every \"time_period\" between your \"time_start\" and \"time_end\".\nIf a \"time_start\" is not supplied, the \"time_period\" will be applied in reverse from \"time_end\".\nIf \"time_end\" is not supplied, it defaults to the current time.\nIf you don't need every \"time_period\" between your dates you may adjust the frequency that \"time_period\" is sam",
+                "operationId": "GetV1CryptocurrencyOhlcvHistorical",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\""
+                    },
+                    {
+                        "name": "symbol",
+                        "in": "query",
+                        "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required."
+                    },
+                    {
+                        "name": "time_period",
+                        "in": "query",
+                        "description": "Time period to return OHLCV data for. The default is \"daily\". Additional options will be available in the future. See the main endpoint description for details."
+                    },
+                    {
+                        "name": "time_start",
+                        "in": "query",
+                        "description": "Timestamp (Unix or ISO 8601) to start returning OHLCV time periods for."
+                    },
+                    {
+                        "name": "time_end",
+                        "in": "query",
+                        "description": "Timestamp (Unix or ISO 8601) to stop returning OHLCV time periods for (exclusive). Optional, if not passed we'll default to the current time."
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Optionally limit the number of time periods to return results for. The default is 10 items. The current query limit is 10000 items."
+                    },
+                    {
+                        "name": "interval",
+                        "in": "query",
+                        "description": "Optionally adjust the interval that \"time_period\" is sampled. See main endpoint description for available options."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        },
+        "\/v1\/cryptocurrency\/quotes\/historical": {
+            "get": {
+                "summary": "Get market quotes (historical)",
+                "description": "Returns an interval of historic market quotes for any cryptocurrency based on time and interval parameters.\n\n**Technical Details**\nA historic quote for every \"interval\" period between your \"time_start\" and \"time_end\" will be returned.\nIf a \"time_start\" is not supplied, the \"interval\" will be applied in reverse from \"time_end\".\nIf \"time_end\" is not supplied, it defaults to the current time.\nAt each \"interval\" period, the historic quote that is closest in time to the requested time will be returne",
+                "operationId": "GetV1CryptocurrencyQuotesHistorical",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\""
+                    },
+                    {
+                        "name": "symbol",
+                        "in": "query",
+                        "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required."
+                    },
+                    {
+                        "name": "time_start",
+                        "in": "query",
+                        "description": "Timestamp (Unix or ISO 8601) to start returning OHLCV time periods for."
+                    },
+                    {
+                        "name": "time_end",
+                        "in": "query",
+                        "description": "Timestamp (Unix or ISO 8601) to stop returning OHLCV time periods for (exclusive). Optional, if not passed we'll default to the current time."
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Optionally limit the number of time periods to return results for. The default is 10 items. The current query limit is 10000 items."
+                    },
+                    {
+                        "name": "interval",
+                        "in": "query",
+                        "description": "Optionally adjust the interval that \"time_period\" is sampled. See main endpoint description for available options."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        },
+        "\/v1\/cryptocurrency\/quotes\/latest": {
+            "get": {
+                "summary": "Get market quotes (latest)",
+                "description": "Get the latest market quote for 1 or more cryptocurrencies. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.\n\n**This endpoint is available on the following API plans:**\n- Starter\n- Hobbyist\n- Standard\n- Professional\n- Enterprise\n\n**Cache \/ Update frequency:** Every ~1 minute.",
+                "operationId": "GetV1CryptocurrencyQuotesLatest",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\""
+                    },
+                    {
+                        "name": "symbol",
+                        "in": "query",
+                        "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        },
+        "\/v1\/exchange\/listings\/historical": {
+            "get": {
+                "summary": "List all exchanges (historical)",
+                "description": "**This endpoint is not yet available. It is slated for release in Q3 2018.**\n\n\nGet a paginated list of all cryptocurrency exchanges with historical market data for a given point in time. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.",
+                "operationId": "GetV1ExchangeListingsHistorical",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "timestamp",
+                        "in": "query",
+                        "description": "Timestamp (Unix or ISO 8601) to return historical cryptocurrency listings for."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Optionally offset the start (1-based index) of the paginated list of items to return."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size."
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "What field to sort the list of cryptocurrencies by."
+                    },
+                    {
+                        "name": "sort_dir",
+                        "in": "query",
+                        "description": "The direction in which to order cryptocurrencies against the specified sort."
+                    },
+                    {
+                        "name": "market_type",
+                        "in": "query",
+                        "description": "The type of exchange markets to include in rankings."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        },
+        "\/v1\/exchange\/listings\/latest": {
+            "get": {
+                "summary": "List all exchanges (latest)",
+                "description": "Get a paginated list of all cryptocurrency exchanges with 24 hour volume. Additional market data fields will be available in the future. You can configure this call to sort by 24 hour volume or another field. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.  \n  \n**This endpoint is available on the following API plans:**\n  - ~~Starter~~\n  - ~~Hobbyist~~\n  - Standard\n  - Professional\n  - Enterprise\n\n**Cache \/ Update frequency:** Eve",
+                "operationId": "GetV1ExchangeListingsLatest",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Optionally offset the start (1-based index) of the paginated list of items to return."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size."
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "What field to sort the list of cryptocurrencies by."
+                    },
+                    {
+                        "name": "sort_dir",
+                        "in": "query",
+                        "description": "The direction in which to order cryptocurrencies against the specified sort."
+                    },
+                    {
+                        "name": "market_type",
+                        "in": "query",
+                        "description": "The type of exchange markets to include in rankings."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        },
+        "\/v1\/exchange\/market-pairs\/latest": {
+            "get": {
+                "summary": "List all market pairs (latest)",
+                "description": "Get a list of active market pairs for an exchange. Active means the market pair is open for trading. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.'\n\n  **This endpoint is available on the following API plans:**\n  - ~~Starter~~\n  - ~~Hobbyist~~\n  - Standard\n  - Professional\n  - Enterprise\n\n**Cache \/ Update frequency:** Every ~5 minutes. This endpoint will be migrated to ~1 minute updates shortly.",
+                "operationId": "GetV1ExchangeMarketpairsLatest",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\""
+                    },
+                    {
+                        "name": "slug",
+                        "in": "query",
+                        "description": "Alternatively, one or more comma-separated exchange names in URL friendly shorthand \"slug\" format (all lowercase, spaces replaced with hyphens). Example: \"binance,gdax\". At least one \"id\" *or* \"slug\" is required."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Optionally offset the start (1-based index) of the paginated list of items to return."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        },
+        "\/v1\/exchange\/quotes\/historical": {
+            "get": {
+                "summary": "Get market quotes (historical)",
+                "description": "Returns an interval of historic quotes for any exchange based on time and interval parameters.\n\nHistorical exchange quotes currently include:\nvolume_24: Combined 24 hour volume for all market pairs at each historical interval.\nnum_market_pairs: Number of market pairs available at each historical interval.\nQuotes are returned in USD. Additional currency conversion options and additional fields will be available in the future.\n\n**Technical Details**\nA historic quote for every \"interval\" period bet",
+                "operationId": "GetV1ExchangeQuotesHistorical",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\""
+                    },
+                    {
+                        "name": "slug",
+                        "in": "query",
+                        "description": "Alternatively, one or more comma-separated exchange names in URL friendly shorthand \"slug\" format (all lowercase, spaces replaced with hyphens). Example: \"binance,gdax\". At least one \"id\" *or* \"slug\" is required."
+                    },
+                    {
+                        "name": "time_start",
+                        "in": "query",
+                        "description": "Timestamp (Unix or ISO 8601) to start returning OHLCV time periods for."
+                    },
+                    {
+                        "name": "time_end",
+                        "in": "query",
+                        "description": "Timestamp (Unix or ISO 8601) to stop returning OHLCV time periods for (exclusive). Optional, if not passed we'll default to the current time."
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Optionally limit the number of time periods to return results for. The default is 10 items. The current query limit is 10000 items."
+                    },
+                    {
+                        "name": "interval",
+                        "in": "query",
+                        "description": "Optionally adjust the interval that \"time_period\" is sampled. See main endpoint description for available options."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        },
+        "\/v1\/exchange\/quotes\/latest": {
+            "get": {
+                "summary": "Get market quotes (latest)",
+                "description": "Get the latest 24 hour volume quote for 1 or more exchanges. Additional market data fields will be available in the future. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.\n\n**This endpoint is available on the following API plans:**\n- ~~Starter~~\n- ~~Hobbyist~~\n- Standard\n- Professional\n- Enterprise\n\n**Cache \/ Update frequency:** Every ~5 minutes. This endpoint will be migrated to ~1 minute updates shortly.",
+                "operationId": "GetV1ExchangeQuotesLatest",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\""
+                    },
+                    {
+                        "name": "slug",
+                        "in": "query",
+                        "description": "Alternatively, one or more comma-separated exchange names in URL friendly shorthand \"slug\" format (all lowercase, spaces replaced with hyphens). Example: \"binance,gdax\". At least one \"id\" *or* \"slug\" is required."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        },
+        "\/v1\/global-metrics\/quotes\/historical": {
+            "get": {
+                "summary": "Get aggregate market metrics (historical)",
+                "description": "Get an interval of aggregate 24 hour volume and market cap data globally based on time and interval parameters.\n\n**Technical Details**\nA historic quote for every \"interval\" period between your \"time_start\" and \"time_end\" will be returned.\nIf a \"time_start\" is not supplied, the \"interval\" will be applied in reverse from \"time_end\".\nIf \"time_end\" is not supplied, it defaults to the current time.\nAt each \"interval\" period, the historic quote that is closest in time to the requested time will be ret",
+                "operationId": "GetV1GlobalmetricsQuotesHistorical",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "time_start",
+                        "in": "query",
+                        "description": "Timestamp (Unix or ISO 8601) to start returning OHLCV time periods for."
+                    },
+                    {
+                        "name": "time_end",
+                        "in": "query",
+                        "description": "Timestamp (Unix or ISO 8601) to stop returning OHLCV time periods for (exclusive). Optional, if not passed we'll default to the current time."
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Optionally limit the number of time periods to return results for. The default is 10 items. The current query limit is 10000 items."
+                    },
+                    {
+                        "name": "interval",
+                        "in": "query",
+                        "description": "Optionally adjust the interval that \"time_period\" is sampled. See main endpoint description for available options."
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        },
+        "\/v1\/global-metrics\/quotes\/latest": {
+            "get": {
+                "summary": "Get aggregate market metrics (latest)",
+                "description": "Get the latest quote of aggregate market metrics. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.\n\n**This endpoint is available on the following API plans:**\n- Starter\n- Hobbyist\n- Standard\n- Professional\n- Enterprise\n\n**Cache \/ Update frequency:** Every ~5 minutes. This endpoint will be migrated to ~1 minute updates shortly.",
+                "operationId": "GetV1GlobalmetricsQuotesLatest",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to."
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Cryptocurrencies Info - URLs object": {
+                "type": "object",
+                "properties": {
+                    "website": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "explorer": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "source_code": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "message_board": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "chat": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "announcement": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "reddit": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "twitter": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrencies Info - Cryptocurrency object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "category": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "logo": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "tags": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Info - Results map": {
+                "type": "object"
+            },
+            "API Status Object": {
+                "type": "object",
+                "properties": {
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_code": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_message": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "elapsed": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "credit_count": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrencies Info - Response Model": {
+                "type": "object"
+            },
+            "status": {
+                "type": "object",
+                "properties": {
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_code": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_message": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "elapsed": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "credit_count": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "HTTP Status 400 Error Object": {
+                "type": "object"
+            },
+            "status 1": {
+                "type": "object",
+                "properties": {
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_code": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_message": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "elapsed": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "credit_count": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "HTTP Status 401 Error Object": {
+                "type": "object"
+            },
+            "status 2": {
+                "type": "object",
+                "properties": {
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_code": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_message": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "elapsed": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "credit_count": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "HTTP Status 403 Error Object": {
+                "type": "object"
+            },
+            "status 3": {
+                "type": "object",
+                "properties": {
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_code": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_message": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "elapsed": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "credit_count": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "HTTP Status 429 Error Object": {
+                "type": "object"
+            },
+            "status 4": {
+                "type": "object",
+                "properties": {
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_code": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_message": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "elapsed": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "credit_count": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "HTTP Status 500 Error Object": {
+                "type": "object"
+            },
+            "Cryptocurrency Map - Cryotocurrency Object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "is_active": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "first_historical_data": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_historical_data": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Map - Response Model": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchanges Info - URLs object": {
+                "type": "object",
+                "properties": {
+                    "website": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "blog": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "chat": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "fee": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "twitter": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchanges Info - Exchange Info object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "logo": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchanges Info - Results map": {
+                "type": "object"
+            },
+            "Exchanges Info - Response Model": {
+                "type": "object"
+            },
+            "Exchange Map - Exchange Object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "is_active": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "first_historical_data": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_historical_data": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Map - Response Model": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Tools Price Conversion - Quote object": {
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Tools Price Conversion - Quotes map": {
+                "type": "object"
+            },
+            "Tools Price Conversion - Results Object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "amount": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Tools Price Conversion - Response Model": {
+                "type": "object"
+            },
+            "Cryptocurrency Listings Historical - Quote object": {
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "volume_24h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "market_cap": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "percent_change_1h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "percent_change_24h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "percent_change_7d": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Listings Historical - Quote map": {
+                "type": "object"
+            },
+            "Cryptocurrency Listings Historical - Cryptocurrency object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "cmc_rank": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "num_market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "circulating_supply": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "total_supply": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "max_supply": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Listings Historical - Response Model": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Listings Latest - Quote object": {
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "volume_24h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "market_cap": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "percent_change_1h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "percent_change_24h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "percent_change_7d": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Listings Latest - Quote map": {
+                "type": "object"
+            },
+            "Cryptocurrency Listings Latest - Cryptocurrency object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "cmc_rank": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "num_market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "circulating_supply": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "total_supply": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "max_supply": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "date_added": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Listings Latest - Response Model": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Market Pairs Latest - Exchange Info object": {
+                "type": "object",
+                "properties": {
+                    "exchange_id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "exchange_slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "exchange_name": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Market Pairs Latest - Pair Base Currency Info object": {
+                "type": "object",
+                "properties": {
+                    "currency_id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currency_symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currency_type": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Market Pairs Latest - Pair Base Currency Info object 1": {
+                "type": "object",
+                "properties": {
+                    "currency_id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currency_symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currency_type": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Market Pairs Latest - Market Pair Quote": {
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "volume_24h_base": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "volume_24h_quote": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Market Pairs Latest - Market Pair Quote object": {
+                "type": "object"
+            },
+            "Cryptocurrency Market Pairs Latest - Market Pair Info object": {
+                "type": "object",
+                "properties": {
+                    "market_pair": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Market Pairs Latest - Results object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "num_market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Market Pairs Latest - Response Model": {
+                "type": "object"
+            },
+            "Cryptocurrency OHLCV Historical - Quote object": {
+                "type": "object",
+                "properties": {
+                    "open": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "high": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "low": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "close": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "volume": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency OHLCV Historical - Quote map": {
+                "type": "object"
+            },
+            "Cryptocurrency OHLCV Historical - Interval Quote object": {
+                "type": "object",
+                "properties": {
+                    "time_open": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "time_close": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency OHLCV Historical - Results object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "quotes": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency OHLCV Historical - Response Model": {
+                "type": "object"
+            },
+            "Cryptocurrency Quotes Historical - Currency Quote object": {
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "volume_24hr": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "market_cap": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Quotes Historical - Quote currency map": {
+                "type": "object"
+            },
+            "Cryptocurrency Quotes Historical - Interval Quote object": {
+                "type": "object",
+                "properties": {
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Quotes Historical - Result object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "quotes": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Quotes Historical - Results map": {
+                "type": "object"
+            },
+            "Cryptocurrency Quotes Historical - Response Model": {
+                "type": "object"
+            },
+            "Cryptocurrency Quotes Latest - Quote map": {
+                "type": "object"
+            },
+            "Cryptocurrency Quotes Latest - Cryptocurrency object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "cmc_rank": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "num_market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "circulating_supply": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "total_supply": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "max_supply": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "date_added": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Cryptocurrency Quotes Latest - Cryptocurrency Results map": {
+                "type": "object"
+            },
+            "Cryptocurrency Quotes Latest - Response Model": {
+                "type": "object"
+            },
+            "Exchange Listings Historical - Quote object": {
+                "type": "object",
+                "properties": {
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "volume_24h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "volume_7d": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "volume_30d": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "percent_change_volume_24h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "percent_change_volume_7d": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "percent_change_volume_30d": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Listings Historical - Quote map": {
+                "type": "object"
+            },
+            "Exchange Listings Historical - Exchange object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "cmc_rank": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "num_market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Listings Historical - Response Model": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Listings Latest - Quote object": {
+                "type": "object",
+                "properties": {
+                    "volume_24h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Listings Latest - Quote map": {
+                "type": "object"
+            },
+            "Exchange Listings Latest - Exchange object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "cmc_rank": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "num_market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Listings Latest - Response Model": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Market Pairs Latest - Pair Base Currency Info object": {
+                "type": "object",
+                "properties": {
+                    "currency_id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currency_symbol": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currency_type": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Market Pairs Latest - Market Pair Info object": {
+                "type": "object",
+                "properties": {
+                    "market_pair": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Market Pairs Latest - Results object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "num_market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Market Pairs Latest - Response Model": {
+                "type": "object"
+            },
+            "Exchange Historical Quotes - Currency Quote object": {
+                "type": "object",
+                "properties": {
+                    "volume_24hr": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Historical Quotes - Quote currency map": {
+                "type": "object"
+            },
+            "Exchange Historical Quotes - nterval Quote object": {
+                "type": "object",
+                "properties": {
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "num_market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Historical Quotes - exchange object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "quotes": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Historical Quotes - Results map": {
+                "type": "object"
+            },
+            "Exchange Historical Quotes - Response Model": {
+                "type": "object"
+            },
+            "Exchange Quotes Latest - Quote object": {
+                "type": "object",
+                "properties": {
+                    "volume_24h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Quotes Latest - Quote map": {
+                "type": "object"
+            },
+            "Exchange Quotes Latest - Exchange object": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "slug": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "num_market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Exchange Quotes Latest - Exchange Results map": {
+                "type": "object"
+            },
+            "Exchange Quotes Latest - Response Model": {
+                "type": "object"
+            },
+            "Global Metrics Quotes Historic - Currency Quote object": {
+                "type": "object",
+                "properties": {
+                    "total_market_cap": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "total_volume_24h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Global Metrics Quotes Historic - Quote currency map": {
+                "type": "object"
+            },
+            "Global Metrics Quotes Historic - Interval Quote object": {
+                "type": "object",
+                "properties": {
+                    "btc_dominance": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Global Metrics Quotes Historic - Results object": {
+                "type": "object",
+                "properties": {
+                    "quotes": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Global Metrics Quotes Historic - Response Model": {
+                "type": "object"
+            },
+            "Global Metrics Quotes Latest - Quote object": {
+                "type": "object",
+                "properties": {
+                    "total_market_cap": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "total_volume_24h": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Global Metrics Quotes Latest - Quote map": {
+                "type": "object"
+            },
+            "Global Metrics Quotes Latest - Results Object": {
+                "type": "object",
+                "properties": {
+                    "btc_dominance": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "eth_dominance": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "active_cryptocurrencies": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "active_market_pairs": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "active_exchanges": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "last_updated": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Global Metrics Quotes Latest - Response Model": {
+                "type": "object"
+            }
+        }
+    }
+}
