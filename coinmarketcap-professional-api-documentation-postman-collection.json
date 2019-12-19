@@ -1,0 +1,1054 @@
+{
+    "id": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+    "name": "CoinMarketCap Professional API Documentation",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "e9252785c8247305548c51478e2d6223",
+            "name": "Get metadata",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/cryptocurrency\/info",
+            "description": "Returns all static metadata for one or more cryptocurrencies including name, symbol, logo, and its various registered URLs.\n\n**This endpoint is available on the following API plans:**\n- Starter\n- Hobbyist\n- Standard\n- Professional\n- Enterprise\n\n**Cache \/ Update frequency:** Static data is updated only as needed, every 30 seconds.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\"",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "symbol",
+                    "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "ed144e45b2aec4f081dbfc3a89ffe103",
+            "name": "Get CoinMarketCap ID map",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/cryptocurrency\/map",
+            "description": "Returns a paginated list of all cryptocurrencies by CoinMarketCap ID. We recommend using this convenience endpoint to lookup and utilize our unique cryptocurrency `id` across all endpoints as typical identifiers like ticker symbols can match multiple cryptocurrencies and change over time. As a convenience you may pass a comma-separated list of cryptocurrency symbols as `symbol` to filter this list to only those you require.\n\n\n  **This endpoint is available on the following API plans:**\n  - Start",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_status",
+                    "description": "Only active coins are returned by default. Pass 'inactive' to get a list of coins that are no longer active.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Optionally offset the start (1-based index) of the paginated list of items to return.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "symbol",
+                    "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "7f48133c3f93fcf69f9abdb8728ec1c1",
+            "name": "Get metadata",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/exchange\/info",
+            "description": "Returns all static metadata for one or more exchanges including logo and homepage URL.\n\n  **This endpoint is available on the following API plans:**\n  - ~~Starter~~\n  - Hobbyist\n  - Standard\n  - Professional\n  - Enterprise\n\n**Cache \/ Update frequency:** Static data is updated only as needed, every 30 seconds.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\"",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "slug",
+                    "description": "Alternatively, one or more comma-separated exchange names in URL friendly shorthand \"slug\" format (all lowercase, spaces replaced with hyphens). Example: \"binance,gdax\". At least one \"id\" *or* \"slug\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "9319b863e4ac18ce1e933c08d21c0f57",
+            "name": "Get CoinMarketCap ID map",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/exchange\/map",
+            "description": "Returns a paginated list of all cryptocurrency exchanges by CoinMarketCap ID. We recommend using this convenience endpoint to lookup and utilize our unique exchange `id` across all endpoints as typical exchange identifiers may change over time. As a convenience you may pass a comma-separated list of exchanges by `slug` to filter this list to only those you require.\n\n**This endpoint is available on the following API plans:**\n  - ~~Starter~~\n  - Hobbyist\n  - Standard\n  - Professional\n  - Enterpris",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_status",
+                    "description": "Only active coins are returned by default. Pass 'inactive' to get a list of coins that are no longer active.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "slug",
+                    "description": "Alternatively, one or more comma-separated exchange names in URL friendly shorthand \"slug\" format (all lowercase, spaces replaced with hyphens). Example: \"binance,gdax\". At least one \"id\" *or* \"slug\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Optionally offset the start (1-based index) of the paginated list of items to return.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "15bcf17895c036947e65bd9bec2476fe",
+            "name": "Price conversion tool",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/tools\/price-conversion",
+            "description": "Convert an amount of one currency into up to 32 other cryptocurrency or fiat currencies at the same time using latest exchange rates. Optionally pass a historical timestamp to convert values based on historic averages.\n\n**Note:** Historical fiat conversions aren't yet available and the latest fiat rates will be used as noted by the `last_updated` timestamp included in the market quote. Historical fiat rates will be coming soon.\n\n**This endpoint is available on the following API plans:**\n- ~~Star",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "amount",
+                    "description": "An amount of currency to convert. Example: 10.43",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "id",
+                    "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\"",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "symbol",
+                    "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "time",
+                    "description": "Optional timestamp (Unix or ISO 8601) to reference historical pricing during conversion. If not passed, the current time will be used. If passed, we'll reference the closest historic values available during conversion.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "5d98fdb59039ed1dab531fb8ad0c94e0",
+            "name": "List all cryptocurrencies (historical)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/cryptocurrency\/listings\/historical",
+            "description": "**This endpoint is not yet available. It is slated for release in Q3 2018.**\n\n\nGet a paginated list of all cryptocurrencies with market data for a given historical time. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "timestamp",
+                    "description": "Timestamp (Unix or ISO 8601) to return historical cryptocurrency listings for.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Optionally offset the start (1-based index) of the paginated list of items to return.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort",
+                    "description": "What field to sort the list of cryptocurrencies by.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_dir",
+                    "description": "The direction in which to order cryptocurrencies against the specified sort.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "cryptocurrency_type",
+                    "description": "The type of cryptocurrency to include.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "a007b250fac8ef5a3f49843bb941dd68",
+            "name": "List all cryptocurrencies (latest)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/cryptocurrency\/listings\/latest",
+            "description": "Get a paginated list of all cryptocurrencies with latest market data. You can configure this call to sort by market cap or another market ranking field. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.   \n\n\nCryptocurrencies are listed by CoinMarketCap Rank by default. You may optionally sort against any of the following:\n**name**: The cryptocurrency name.\n**symbol**: The cryptocurrency symbol.\n**date_added**: Date cryptocurrency w",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "start",
+                    "description": "Optionally offset the start (1-based index) of the paginated list of items to return.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort",
+                    "description": "What field to sort the list of cryptocurrencies by.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_dir",
+                    "description": "The direction in which to order cryptocurrencies against the specified sort.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "cryptocurrency_type",
+                    "description": "The type of cryptocurrency to include.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "e59b32a77caf615a066fc257aba16ebb",
+            "name": "Get market pairs (latest)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/cryptocurrency\/market-pairs\/latest",
+            "description": "Lists all market pairs for the specified cryptocurrency with associated stats. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.\n\n\n  **This endpoint is available on the following API plans:**\n  - ~~Starter~~\n  - ~~Hobbyist~~\n  - Standard\n  - Professional\n  - Enterprise\n\n**Cache \/ Update frequency:** Every ~1 minute.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\"",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "symbol",
+                    "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Optionally offset the start (1-based index) of the paginated list of items to return.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "be0099026308e986b59ece567c03d0b7",
+            "name": "Get OHLCV values (historical)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/cryptocurrency\/ohlcv\/historical",
+            "description": "Return an interval of historic OHLCV (Open, High, Low, Close, Volume) market quotes for a cryptocurrency.\n\n**Technical Details**\nOne OHLCV quote will be returned for every \"time_period\" between your \"time_start\" and \"time_end\".\nIf a \"time_start\" is not supplied, the \"time_period\" will be applied in reverse from \"time_end\".\nIf \"time_end\" is not supplied, it defaults to the current time.\nIf you don't need every \"time_period\" between your dates you may adjust the frequency that \"time_period\" is sam",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\"",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "symbol",
+                    "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "time_period",
+                    "description": "Time period to return OHLCV data for. The default is \"daily\". Additional options will be available in the future. See the main endpoint description for details.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "time_start",
+                    "description": "Timestamp (Unix or ISO 8601) to start returning OHLCV time periods for.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "time_end",
+                    "description": "Timestamp (Unix or ISO 8601) to stop returning OHLCV time periods for (exclusive). Optional, if not passed we'll default to the current time.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "count",
+                    "description": "Optionally limit the number of time periods to return results for. The default is 10 items. The current query limit is 10000 items.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "interval",
+                    "description": "Optionally adjust the interval that \"time_period\" is sampled. See main endpoint description for available options.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "33bee8a14fe2a07f36c0e2f1465fc87f",
+            "name": "Get market quotes (historical)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/cryptocurrency\/quotes\/historical",
+            "description": "Returns an interval of historic market quotes for any cryptocurrency based on time and interval parameters.\n\n**Technical Details**\nA historic quote for every \"interval\" period between your \"time_start\" and \"time_end\" will be returned.\nIf a \"time_start\" is not supplied, the \"interval\" will be applied in reverse from \"time_end\".\nIf \"time_end\" is not supplied, it defaults to the current time.\nAt each \"interval\" period, the historic quote that is closest in time to the requested time will be returne",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\"",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "symbol",
+                    "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "time_start",
+                    "description": "Timestamp (Unix or ISO 8601) to start returning OHLCV time periods for.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "time_end",
+                    "description": "Timestamp (Unix or ISO 8601) to stop returning OHLCV time periods for (exclusive). Optional, if not passed we'll default to the current time.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "count",
+                    "description": "Optionally limit the number of time periods to return results for. The default is 10 items. The current query limit is 10000 items.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "interval",
+                    "description": "Optionally adjust the interval that \"time_period\" is sampled. See main endpoint description for available options.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "2cb62fcf32a87d9112b7be86cc8a7008",
+            "name": "Get market quotes (latest)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/cryptocurrency\/quotes\/latest",
+            "description": "Get the latest market quote for 1 or more cryptocurrencies. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.\n\n**This endpoint is available on the following API plans:**\n- Starter\n- Hobbyist\n- Standard\n- Professional\n- Enterprise\n\n**Cache \/ Update frequency:** Every ~1 minute.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\"",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "symbol",
+                    "description": "Alternatively pass one or more comma-separated cryptocurrency symbols. Example: \"BTC,ETH\". At least one \"id\" *or* \"symbol\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "33df85c3d50d10065860ae5337fc749f",
+            "name": "List all exchanges (historical)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/exchange\/listings\/historical",
+            "description": "**This endpoint is not yet available. It is slated for release in Q3 2018.**\n\n\nGet a paginated list of all cryptocurrency exchanges with historical market data for a given point in time. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "timestamp",
+                    "description": "Timestamp (Unix or ISO 8601) to return historical cryptocurrency listings for.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Optionally offset the start (1-based index) of the paginated list of items to return.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort",
+                    "description": "What field to sort the list of cryptocurrencies by.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_dir",
+                    "description": "The direction in which to order cryptocurrencies against the specified sort.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "market_type",
+                    "description": "The type of exchange markets to include in rankings.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "3a5048944769568b2bf00e81164df0fe",
+            "name": "List all exchanges (latest)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/exchange\/listings\/latest",
+            "description": "Get a paginated list of all cryptocurrency exchanges with 24 hour volume. Additional market data fields will be available in the future. You can configure this call to sort by 24 hour volume or another field. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.  \n  \n**This endpoint is available on the following API plans:**\n  - ~~Starter~~\n  - ~~Hobbyist~~\n  - Standard\n  - Professional\n  - Enterprise\n\n**Cache \/ Update frequency:** Eve",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "start",
+                    "description": "Optionally offset the start (1-based index) of the paginated list of items to return.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort",
+                    "description": "What field to sort the list of cryptocurrencies by.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_dir",
+                    "description": "The direction in which to order cryptocurrencies against the specified sort.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "market_type",
+                    "description": "The type of exchange markets to include in rankings.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "e9b7b895f3af7d08d653361cc974f254",
+            "name": "List all market pairs (latest)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/exchange\/market-pairs\/latest",
+            "description": "Get a list of active market pairs for an exchange. Active means the market pair is open for trading. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.'\n\n  **This endpoint is available on the following API plans:**\n  - ~~Starter~~\n  - ~~Hobbyist~~\n  - Standard\n  - Professional\n  - Enterprise\n\n**Cache \/ Update frequency:** Every ~5 minutes. This endpoint will be migrated to ~1 minute updates shortly.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\"",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "slug",
+                    "description": "Alternatively, one or more comma-separated exchange names in URL friendly shorthand \"slug\" format (all lowercase, spaces replaced with hyphens). Example: \"binance,gdax\". At least one \"id\" *or* \"slug\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Optionally offset the start (1-based index) of the paginated list of items to return.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Optionally specify the number of results to return. Use this parameter and the \"start\" parameter to determine your own pagination size.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "37c5621785bf024273023f872d7c61a2",
+            "name": "Get market quotes (historical)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/exchange\/quotes\/historical",
+            "description": "Returns an interval of historic quotes for any exchange based on time and interval parameters.\n\nHistorical exchange quotes currently include:\nvolume_24: Combined 24 hour volume for all market pairs at each historical interval.\nnum_market_pairs: Number of market pairs available at each historical interval.\nQuotes are returned in USD. Additional currency conversion options and additional fields will be available in the future.\n\n**Technical Details**\nA historic quote for every \"interval\" period bet",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\"",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "slug",
+                    "description": "Alternatively, one or more comma-separated exchange names in URL friendly shorthand \"slug\" format (all lowercase, spaces replaced with hyphens). Example: \"binance,gdax\". At least one \"id\" *or* \"slug\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "time_start",
+                    "description": "Timestamp (Unix or ISO 8601) to start returning OHLCV time periods for.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "time_end",
+                    "description": "Timestamp (Unix or ISO 8601) to stop returning OHLCV time periods for (exclusive). Optional, if not passed we'll default to the current time.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "count",
+                    "description": "Optionally limit the number of time periods to return results for. The default is 10 items. The current query limit is 10000 items.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "interval",
+                    "description": "Optionally adjust the interval that \"time_period\" is sampled. See main endpoint description for available options.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "ada753d0c2c48e08eaef79bd0210cc06",
+            "name": "Get market quotes (latest)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/exchange\/quotes\/latest",
+            "description": "Get the latest 24 hour volume quote for 1 or more exchanges. Additional market data fields will be available in the future. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.\n\n**This endpoint is available on the following API plans:**\n- ~~Starter~~\n- ~~Hobbyist~~\n- Standard\n- Professional\n- Enterprise\n\n**Cache \/ Update frequency:** Every ~5 minutes. This endpoint will be migrated to ~1 minute updates shortly.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "One or more comma-separated CoinMarketCap cryptocurrency IDs. Example: \"1,2\"",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "slug",
+                    "description": "Alternatively, one or more comma-separated exchange names in URL friendly shorthand \"slug\" format (all lowercase, spaces replaced with hyphens). Example: \"binance,gdax\". At least one \"id\" *or* \"slug\" is required.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "16b3db56d7957dfb325b02f08a0214ea",
+            "name": "Get aggregate market metrics (historical)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/global-metrics\/quotes\/historical",
+            "description": "Get an interval of aggregate 24 hour volume and market cap data globally based on time and interval parameters.\n\n**Technical Details**\nA historic quote for every \"interval\" period between your \"time_start\" and \"time_end\" will be returned.\nIf a \"time_start\" is not supplied, the \"interval\" will be applied in reverse from \"time_end\".\nIf \"time_end\" is not supplied, it defaults to the current time.\nAt each \"interval\" period, the historic quote that is closest in time to the requested time will be ret",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "time_start",
+                    "description": "Timestamp (Unix or ISO 8601) to start returning OHLCV time periods for.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "time_end",
+                    "description": "Timestamp (Unix or ISO 8601) to stop returning OHLCV time periods for (exclusive). Optional, if not passed we'll default to the current time.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "count",
+                    "description": "Optionally limit the number of time periods to return results for. The default is 10 items. The current query limit is 10000 items.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "interval",
+                    "description": "Optionally adjust the interval that \"time_period\" is sampled. See main endpoint description for available options.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        },
+        {
+            "id": "6340cb1b123891ea7797ab5bd03f51f7",
+            "name": "Get aggregate market metrics (latest)",
+            "url": "httpspro-api.coinmarketcap.com\/\/v1\/global-metrics\/quotes\/latest",
+            "description": "Get the latest quote of aggregate market metrics. Use the \"convert\" option to return market values in multiple fiat and cryptocurrency conversions in the same call.\n\n**This endpoint is available on the following API plans:**\n- Starter\n- Hobbyist\n- Standard\n- Professional\n- Enterprise\n\n**Cache \/ Update frequency:** Every ~5 minutes. This endpoint will be migrated to ~1 minute updates shortly.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "convert",
+                    "description": "Pass up to 32 comma-separated fiat or cryptocurrency symbols to convert the source amount to.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "3a40bc27d5ac9821db6398dc8ee4eb2b",
+            "rawModeData": ""
+        }
+    ]
+}
