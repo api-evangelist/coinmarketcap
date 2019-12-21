@@ -7,8 +7,8 @@
         "have api",
         "streams"
     ],
-    "created": "2019-12-19",
-    "modified": "2019-12-19",
+    "created": "2019-12-20",
+    "modified": "2019-12-20",
     "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/coinmarketcap\/master\/apis.json",
     "specificationVersion": "0.14",
     "apis": [
@@ -22,7 +22,7 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/coinmarketcap-professional-api-documentation-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/coinmarketcap\/master\/coinmarketcap-professional-api-documentation-openapi.json"
                 },
                 {
                     "type": "x-openapi",
@@ -30,13 +30,17 @@
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/coinmarketcap-professional-api-documentation-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/coinmarketcap\/master\/coinmarketcap-professional-api-documentation-postman-collection.json"
                 }
             ]
         }
     ],
     "include": [],
     "x-common": [
+        {
+            "type": "APIs.json",
+            "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/apis.json"
+        },
         {
             "type": "Github",
             "url": "https:\/\/github.com\/coinmarketcap"
