@@ -5,37 +5,177 @@ provider: CoinMarketCap
 providerId: coinmarketcap
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
-- Web3
-- Crypto
-- Market Data
-- Rankings
-- API
-- Plans
-description: Placeholder plans/pricing artifact for CoinMarketCap. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+  - Crypto
+  - Market Data
+  - Plans
+description: >-
+  CoinMarketCap publishes six tiers of Pro API access. Free Basic (15K credits/mo, personal use)
+  through Hobbyist ($29), Startup ($79), Standard ($299), Professional ($699), and custom
+  Enterprise. Annual billing offers up to 20% discount. Commercial use is permitted starting at
+  the Startup tier.
 sources:
-- https://coinmarketcap.com/
+  - https://coinmarketcap.com/api/pricing/
+  - https://coinmarketcap.com/api/documentation/v1/
 plans:
-- id: coinmarketcap-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
-  entries:
-  - label: API Access
-    name: api_access
-    type: flat
-    metric: varies
-    limit: -1
-    timeFrame: usage
-    geo: global
-    unit: 1
-    price: see https://coinmarketcap.com/
-    userMultiplied: false
-  elements:
-  - name: Pending Reconciliation
+  - id: cmc-basic
+    name: Basic
+    type: freemium
+    description: Free - 15,000 credits/month, personal use only, 30+ endpoints.
+    entries:
+      - label: Monthly subscription
+        name: basic_monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Monthly credits
+        name: basic_credits
+        type: quota
+        metric: credit
+        limit: 15000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: 30+ endpoints
+      - name: Personal use only
+  - id: cmc-hobbyist
+    name: Hobbyist
+    type: subscription
+    description: $29/month or $348/year - 150K credits, 3 years historical, 40+ endpoints.
+    entries:
+      - label: Monthly subscription
+        name: hobbyist_monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '29.00'
+        userMultiplied: false
+      - label: Monthly credits
+        name: hobbyist_credits
+        type: quota
+        metric: credit
+        limit: 150000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: 40+ endpoints
+      - name: 3 years historical
+  - id: cmc-startup
+    name: Startup
+    type: subscription
+    description: $79/month or $948/year - 450K credits, 50+ endpoints, commercial use approved.
+    entries:
+      - label: Monthly subscription
+        name: startup_monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '79.00'
+        userMultiplied: false
+      - label: Monthly credits
+        name: startup_credits
+        type: quota
+        metric: credit
+        limit: 450000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: 50+ endpoints
+      - name: Commercial use approved
+  - id: cmc-standard
+    name: Standard
+    type: subscription
+    description: $299/month or $3,588/year - 2M credits, all endpoints.
+    entries:
+      - label: Monthly subscription
+        name: standard_monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '299.00'
+        userMultiplied: false
+      - label: Monthly credits
+        name: standard_credits
+        type: quota
+        metric: credit
+        limit: 2000000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All endpoints
+  - id: cmc-professional
+    name: Professional
+    type: subscription
+    description: $699/month or $8,388/year - 5M credits, all endpoints.
+    entries:
+      - label: Monthly subscription
+        name: professional_monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '699.00'
+        userMultiplied: false
+      - label: Monthly credits
+        name: professional_credits
+        type: quota
+        metric: credit
+        limit: 5000000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All endpoints
+      - name: Higher rate limit
+  - id: cmc-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom pricing - white-glove support, dedicated infrastructure.
+    entries:
+      - label: Custom pricing
+        name: enterprise_custom
+        type: subscription
+        metric: contract
+        limit: -1
+        timeFrame: contract
+        geo: global
+        unit: 1
+        price: contact sales
+        userMultiplied: false
+    elements:
+      - name: Dedicated support
+      - name: Custom SLA
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
