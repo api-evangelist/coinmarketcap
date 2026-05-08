@@ -1,0 +1,29 @@
+aid: coinmarketcap
+url: https://raw.githubusercontent.com/api-evangelist/coinmarketcap/refs/heads/main/apis.yml
+name: CoinMarketCap
+x-type: company
+description: >-
+  CoinMarketCap is the leading crypto market data and rankings platform. APIs cover price, market cap, volume, exchanges, derivatives, and DEX metrics.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Web3
+  - Crypto
+  - Market Data
+  - Rankings
+  - API
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://coinmarketcap.com/
+  - type: Plans
+    url: plans/coinmarketcap-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/coinmarketcap-rate-limits.yml
+  - type: FinOps
+    url: finops/coinmarketcap-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
