@@ -57,6 +57,10 @@ apis:
       - Backtest strategies on historical OHLCV
       - Surface Fear and Greed sentiment in apps
 common:
+  - type: GitHubOrganization
+    url: https://github.com/CoinMarketCap
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/coinmarketcap
   - type: Portal
     url: https://coinmarketcap.com/api/
   - type: Documentation
