@@ -25,7 +25,7 @@ tags:
   - Cryptocurrency
 created: '2026-05-08'
 modified: '2026-05-08'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 description: >-
   CoinMarketCap is the leading crypto market data and rankings platform. The CoinMarketCap Pro
   API exposes 40+ REST endpoints covering cryptocurrency listings, quotes, OHLCV, exchange data,
