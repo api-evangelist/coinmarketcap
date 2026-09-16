@@ -27,79 +27,79 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/coinmarketcap.png
 tags:
-  - Web3
+- Web3
+- Crypto
+- Market Data
+- Rankings
+- DEX
+- Exchanges
+- Cryptocurrency
+created: '2026-05-08'
+modified: '2026-09-16'
+specificationVersion: '0.23'
+description: CoinMarketCap is the leading crypto market data and rankings platform. The CoinMarketCap
+  Pro API exposes 40+ REST endpoints covering cryptocurrency listings, quotes, OHLCV, exchange data, DEX/on-chain
+  data, derivatives, global metrics, Fear and Greed index, content, and tools. Most data refreshes every
+  1 minute. Authentication uses an X-CMC_PRO_API_KEY header.
+apis:
+- aid: coinmarketcap:pro-api
+  name: CoinMarketCap Pro API
+  tags:
   - Crypto
   - Market Data
-  - Rankings
-  - DEX
   - Exchanges
-  - Cryptocurrency
-created: '2026-05-08'
-modified: '2026-05-08'
-specificationVersion: '0.23'
-description: >-
-  CoinMarketCap is the leading crypto market data and rankings platform. The CoinMarketCap Pro
-  API exposes 40+ REST endpoints covering cryptocurrency listings, quotes, OHLCV, exchange data,
-  DEX/on-chain data, derivatives, global metrics, Fear and Greed index, content, and tools. Most
-  data refreshes every 1 minute. Authentication uses an X-CMC_PRO_API_KEY header.
-apis:
-  - aid: coinmarketcap:pro-api
-    name: CoinMarketCap Pro API
-    tags:
-      - Crypto
-      - Market Data
-      - Exchanges
-      - DEX
-      - Derivatives
-      - Global Metrics
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://pro-api.coinmarketcap.com
-    humanURL: https://coinmarketcap.com/api/documentation/v1/
-    description: >-
-      Single REST API spanning Cryptocurrency endpoints (listings, quotes, OHLCV, market pairs,
-      historical), Exchange endpoints (listings, quotes, market pairs), DEX/on-chain data
-      (networks, dexes, spot pairs, listings), Global metrics, Fear and Greed index, content,
-      tools (price conversion), partners (CryptoCompare).
-    properties:
-      - type: Documentation
-        url: https://coinmarketcap.com/api/documentation/v1/
-      - type: Pricing
-        url: https://coinmarketcap.com/api/pricing/
-      - type: Sandbox
-        url: https://sandbox-api.coinmarketcap.com
-    x-features:
-      - 40+ REST endpoints
-      - Cryptocurrency listings, quotes, OHLCV
-      - Exchange and DEX data
-      - Global metrics (total market cap, BTC dominance)
-      - Fear and Greed index
-      - 1-minute data refresh
-    x-use-cases:
-      - Power crypto pricing widgets and market dashboards
-      - Build portfolio valuation services
-      - Backtest strategies on historical OHLCV
-      - Surface Fear and Greed sentiment in apps
-common:
-  - type: DomainSecurity
-    url: security/coinmarketcap-domain-security.yml
-  - type: GitHubOrganization
-    url: https://github.com/CoinMarketCap
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/coinmarketcap
-  - type: Portal
-    url: https://coinmarketcap.com/api/
+  - DEX
+  - Derivatives
+  - Global Metrics
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  baseURL: https://pro-api.coinmarketcap.com
+  humanURL: https://coinmarketcap.com/api/documentation/v1/
+  description: Single REST API spanning Cryptocurrency endpoints (listings, quotes, OHLCV, market pairs,
+    historical), Exchange endpoints (listings, quotes, market pairs), DEX/on-chain data (networks, dexes,
+    spot pairs, listings), Global metrics, Fear and Greed index, content, tools (price conversion), partners
+    (CryptoCompare).
+  properties:
   - type: Documentation
     url: https://coinmarketcap.com/api/documentation/v1/
   - type: Pricing
     url: https://coinmarketcap.com/api/pricing/
   - type: Sandbox
     url: https://sandbox-api.coinmarketcap.com
-  - type: Plans
-    url: plans/coinmarketcap-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/coinmarketcap-rate-limits.yml
-  - type: FinOps
-    url: finops/coinmarketcap-finops.yml
+  x-features:
+  - 40+ REST endpoints
+  - Cryptocurrency listings, quotes, OHLCV
+  - Exchange and DEX data
+  - Global metrics (total market cap, BTC dominance)
+  - Fear and Greed index
+  - 1-minute data refresh
+  x-use-cases:
+  - Power crypto pricing widgets and market dashboards
+  - Build portfolio valuation services
+  - Backtest strategies on historical OHLCV
+  - Surface Fear and Greed sentiment in apps
+common:
+- type: Website
+  url: https://coinmarketcap.com
+- type: DomainSecurity
+  url: security/coinmarketcap-domain-security.yml
+- type: GitHubOrganization
+  url: https://github.com/CoinMarketCap
+- type: LinkedIn
+  url: https://www.linkedin.com/company/coinmarketcap
+- type: Portal
+  url: https://coinmarketcap.com/api/
+- type: Documentation
+  url: https://coinmarketcap.com/api/documentation/v1/
+- type: Pricing
+  url: https://coinmarketcap.com/api/pricing/
+- type: Sandbox
+  url: https://sandbox-api.coinmarketcap.com
+- type: Plans
+  url: plans/coinmarketcap-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/coinmarketcap-rate-limits.yml
+- type: FinOps
+  url: finops/coinmarketcap-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
