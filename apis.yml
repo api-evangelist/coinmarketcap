@@ -32,6 +32,14 @@ tags:
 - Market Data
 - Rankings
 - DEX
+- Exchange
+- Cryptocurrency
+tags_raw:
+- Web3
+- Crypto
+- Market Data
+- Rankings
+- DEX
 - Exchanges
 - Cryptocurrency
 created: '2026-05-08'
@@ -45,6 +53,13 @@ apis:
 - aid: coinmarketcap:pro-api
   name: CoinMarketCap Pro API
   tags:
+  - Crypto
+  - Market Data
+  - Exchange
+  - DEX
+  - Derivatives
+  - Global Metrics
+  tags_raw:
   - Crypto
   - Market Data
   - Exchanges
