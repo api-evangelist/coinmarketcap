@@ -32,7 +32,6 @@ tags:
 - Market Data
 - Rankings
 - DEX
-- Exchange
 - Cryptocurrency
 tags_raw:
 - Web3
@@ -40,7 +39,6 @@ tags_raw:
 - Market Data
 - Rankings
 - DEX
-- Exchanges
 - Cryptocurrency
 created: '2026-05-08'
 modified: '2026-09-16'
@@ -118,3 +116,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-tags-removed:
+- Exchange
