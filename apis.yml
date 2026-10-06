@@ -41,7 +41,7 @@ tags_raw:
 - DEX
 - Cryptocurrency
 created: '2026-05-08'
-modified: '2026-09-16'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 description: CoinMarketCap is the leading crypto market data and rankings platform. The CoinMarketCap
   Pro API exposes 40+ REST endpoints covering cryptocurrency listings, quotes, OHLCV, exchange data, DEX/on-chain
@@ -91,6 +91,8 @@ apis:
   - Backtest strategies on historical OHLCV
   - Surface Fear and Greed sentiment in apps
 common:
+- url: https://coinmarketcap.com/community/articles/
+  type: Blog
 - type: Website
   url: https://coinmarketcap.com
 - type: DomainSecurity
