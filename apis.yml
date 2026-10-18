@@ -28,11 +28,10 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/coinmarketcap.png
 tags:
 - Web3
-- Crypto
+- Cryptocurrency
 - Market Data
 - Rankings
-- DEX
-- Cryptocurrency
+- Decentralized Exchange
 tags_raw:
 - Web3
 - Crypto
@@ -51,10 +50,10 @@ apis:
 - aid: coinmarketcap:pro-api
   name: CoinMarketCap Pro API
   tags:
-  - Crypto
+  - Cryptocurrency
   - Market Data
   - Exchange
-  - DEX
+  - Decentralized Exchange
   - Derivatives
   - Global Metrics
   tags_raw:
