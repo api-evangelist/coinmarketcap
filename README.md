@@ -1,4 +1,4 @@
-# CoinMarketCap (coinmarketcap)
+# CoinMarketCap
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,37 +64,113 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-CoinMarketCap is the leading crypto market data and rankings platform. The CoinMarketCap Pro API exposes 40+ REST endpoints covering cryptocurrency listings, quotes, OHLCV, exchange data, DEX/on-chain data, derivatives, global metrics, Fear and Greed index, content, and tools. Most data refreshes every 1 minute.
+CoinMarketCap is the leading crypto market data and rankings platform. The CoinMarketCap Pro API exposes 40+ REST endpoints covering cryptocurrency listings, quotes, OHLCV, exchange data, DEX/on-chain data, derivatives, global metrics, Fear and Greed index, content, and tools. Most data refreshes every 1 minute. Authentication uses an X-CMC_PRO_API_KEY header.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/coinmarketcap/refs/heads/main/apis.yml)
+**Areas:** Web3 · Cryptocurrency · Market Data · Rankings · Decentralized Exchange
 
-## Type
-- **x-type:** company
+## CoinMarketCap on APIs.io
 
-## Tags
-- Web3, Crypto, Market Data, Rankings, DEX, Exchanges
+Everything profiled for CoinMarketCap is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/coinmarketcap/](https://apis.io/providers/coinmarketcap/)** — or go straight to one of the APIs or properties below.
 
-## APIs
-- **CoinMarketCap Pro API** (`https://pro-api.coinmarketcap.com`) - REST
+### APIs (1)
 
-Sandbox: `https://sandbox-api.coinmarketcap.com`
+- [CoinMarketCap Pro API](https://apis.io/apis/coinmarketcap/pro-api/) — Single REST API spanning Cryptocurrency endpoints (listings, quotes, OHLCV, market pairs, historical), Exchange endpoints (listings, quotes, market pairs),…
 
-## Notes on OpenAPI
-CoinMarketCap publishes Swagger-style reference docs but no canonical OpenAPI file at a stable public URL.
+### Published properties
 
-## Timestamps
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Common Properties
-- [Portal](https://coinmarketcap.com/api/)
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [coinmarketcap](https://apis.io/servers/coinmarketcap/coinmarketcap/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Coinmarketcap Domain Security](https://apis.io/security/coinmarketcap/coinmarketcap-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Coinmarketcap Plans Pricing](https://apis.io/plans/coinmarketcap/coinmarketcap-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Coinmarketcap Rate Limits](https://apis.io/rate-limits/coinmarketcap/coinmarketcap-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Coinmarketcap Finops](https://apis.io/finops/coinmarketcap/coinmarketcap-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://coinmarketcap.com)
 - [Documentation](https://coinmarketcap.com/api/documentation/v1/)
 - [Pricing](https://coinmarketcap.com/api/pricing/)
-- [Plans](plans/coinmarketcap-plans-pricing.yml) - reconciled
-- [RateLimits](rate-limits/coinmarketcap-rate-limits.yml) - reconciled
-- [FinOps](finops/coinmarketcap-finops.yml) - reconciled FOCUS-aligned
+- [Blog](https://coinmarketcap.com/community/articles/)
+- [GitHub](https://github.com/CoinMarketCap)
 
-## Maintainers
-**FN:** Kin Lane
+## API Evangelist rating
 
-**Email:** kin@apievangelist.com
+**Kin Score 15.5** — emerging · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 25.0 |
+| Access clarity | 18.4 |
+
+**Agent readiness 9.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 11.1** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/coinmarketcap/](https://apis.io/providers/coinmarketcap/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CoinMarketCap: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/coinmarketcap/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
